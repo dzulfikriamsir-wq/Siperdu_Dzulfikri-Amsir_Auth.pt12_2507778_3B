@@ -21,7 +21,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role', // kolom role ditambahkan agar bisa menampung data role user (admin/user)
+    
     ];
+
+    // method untuk mengecek apakah user adalah admin
+    public function isAdmin(): bool
+    
+    {
+        return $this->role === 'admin';
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -32,6 +41,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
 
     /**
      * Get the attributes that should be cast.
